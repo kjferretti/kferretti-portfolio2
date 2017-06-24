@@ -1,0 +1,446 @@
+﻿<!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HOME -->
+    <section class="module module-header bg-dark bg-dark-50" data-background="/assets/images/DeathtoStock_Wired6.jpg">
+
+        <div class="container">
+
+            <!-- MODULE TITLE -->
+            <div class="row">
+
+                <div class="col-sm-6 col-sm-offset-3">
+
+                    <h1 class="module-title font-alt align-center">Portfolio</h1>
+
+                    <div class="module-subtitle font-inc align-center">
+                        See what I've done
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /MODULE TITLE -->
+
+        </div>
+
+    </section>
+    <!-- /HOME -->
+
+    <!-- PORTFOLIO -->
+    <section class="module-small p-t-20 p-b-60">
+
+        <div class="container">
+
+            <!-- PORTFOLIO FILTER -->
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <ul id="filters" class="filter font-inc hidden-xs">
+                        <li><a href="#" data-filter="*" class="current wow fadeInUp">All</a></li>
+                        <li><a href="#" data-filter=".MVC" class="wow fadeInUp" data-wow-delay="0.2s">MVC</a></li>
+                        <li><a href="#" data-filter=".xamarin" class="wow fadeInUp" data-wow-delay="0.4s">Xamarin</a></li>
+                        <li><a href="#" data-filter=".javascript" class="wow fadeInUp" data-wow-delay="0.6s">JavaScript</a></li>
+                        <li><a href="#" data-filter=".cSharp" class="wow fadeInUp" data-wow-delay="0.8s">C#</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <!-- /PORTFOLIO FILTER -->
+
+        </div>
+
+        <!-- PORTFOLIO LIST -->
+        <ul id="works-grid" class="works-grid works-grid-gut works-grid-2 works-hover-w">
+
+            <!-- PORTFOLIO ITEM -->
+            <li class="work-item MVC">
+                <a href="http://kferretti-bugtracker.azurewebsites.net" target="_blank">
+                    <div class="work-image">
+                        
+                        <img src="~/assets/images/work-purple.jpg" alt="">
+                        <h1 class="text-over-image">ReSolve</h1>
+                    </div>
+                    <div class="work-caption">
+                        <h3 class="work-title font-alt">Bug Tracker</h3>
+                        <div class="work-descr font-inc">
+                            MVC
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- /PORTFOLIO ITEM -->
+
+            <!-- PORTFOLIO ITEM -->
+            <li class="work-item MVC">
+                <a href="http://kferretti-budgeter.azurewebsites.net/" target="_blank">
+                    <div class="work-image">
+                        <img src="~/assets/images/work-red.jpg" alt="">
+                        <h1 class="text-over-image">ReFund</h1>
+                    </div>
+                    <div class="work-caption">
+                        <h3 class="work-title font-alt">Financial Portal</h3>
+                        <div class="work-descr font-inc">
+                            MVC
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- /PORTFOLIO ITEM -->
+
+            <!-- PORTFOLIO ITEM -->
+            <li class="work-item xamarin">
+                <a href="" data-toggle="modal" data-target="#comingsoon">
+                    <div class="work-image">
+                        <img src="~/assets/images/work-yellow.jpg" alt="">
+                        <h1 class="text-over-image">ReVerse</h1>
+                    </div>
+                    <div class="work-caption">
+                        <h3 class="work-title font-alt">Car Finder</h3>
+                        <div class="work-descr font-inc">
+                            Xamarin
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- /PORTFOLIO ITEM -->
+
+            <!-- PORTFOLIO ITEM -->
+            <li class="work-item MVC">
+                <a href="" @*href="http://kferretti-shopping.azurewebsites.net/"*@ data-toggle="modal" data-target="#comingsoon" @*target="_blank"*@>
+                    <div class="work-image">
+                        <img src="~/assets/images/work-grey.jpg" alt="">
+                        <h1 class="text-over-image">ReStock</h1>
+                    </div>
+                    <div class="work-caption">
+                        <h3 class="work-title font-alt">Shopping Cart Application</h3>
+                        <div class="work-descr font-inc">
+                            MVC
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- /PORTFOLIO ITEM -->
+
+            <!-- PORTFOLIO ITEM -->
+            <li class="work-item javascript">
+                <a href="" data-toggle="modal" data-target="#javascript-modal">
+                    <div class="work-image">
+                        <img src="~/assets/images/code-JS-body.jpg" alt="">
+                    </div>
+                    <div class="work-caption">
+                        <h3 class="work-title font-alt">Logic Problems</h3>
+                        <div class="work-descr font-inc">
+                            Javascript
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- /PORTFOLIO ITEM -->
+
+            <!-- PORTFOLIO ITEM -->
+            <li class="work-item cSharp">
+                <a href="@Url.Action("PortfolioCS","Home")">
+                    <div class="work-image">
+                        <img src="~/assets/images/work-csharp.jpg" alt="">
+                    </div>
+                    <div class="work-caption">
+                        <h3 class="work-title font-alt">Logic Problems</h3>
+                        <div class="work-descr font-inc">
+                            C#
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- /PORTFOLIO ITEM -->
+
+        </ul>
+        <!-- /PORTFOLIO LIST -->
+
+    </section>
+    <!-- /PORTFOLIO -->
+
+    <!-- PAGINATION -->
+    <section class="module-small p-t-0">
+
+        <div class="container">
+
+            <div class="pagination font-inc text-uppercase">
+
+                <a href="#"><i class="fa fa-angle-left"></i> Prev</a>
+                <a href="#">Next <i class="fa fa-angle-right"></i></a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /PAGINATION -->
+
+    <!-- DIVIDER -->
+    <hr class="divider-w">
+    <!-- /DIVIDER -->
+
+    <!-- CONTACT -->
+    <section class="module-small">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-map-pin"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            3106 Campfire Ct, Jamestown, NC
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-phone"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            +1 336 402 49 54
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-envelope"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            kjferretti@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /CONTACT -->
+
+    <!-- FOOTER -->
+    @*<footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-12 text-center">
+                    <p class="copyright font-inc m-b-0">© 2015 <a href="@Url.Action("Index","Home")">SEMANTIC</a>, All Rights Reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>*@
+    <!-- /FOOTER -->
+
+</div>
+<!-- /WRAPPER -->
+
+<!-- Modals -->
+<div class="modal fade" id="comingsoon" tabindex="-1" role="dialog" aria-labelledby="Coming Soon" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel">Coming Soon!</h1>
+            </div>
+            @*<div class="modal-body col-sm-12">
+            </div>
+            <div class="modal-footer no-margin">
+            </div>*@
+        </div>
+    </div>
+</div>
+<!-- /Modals -->
+
+<!-- Tabbed Modal -->
+<div class="modal fade" id="javascript-modal" tabindex="-1" role="dialog" aria-labelledby="Javascript Problems" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel">JavaScript Logic Problems</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                @*<h2>Logic Problems</h2>*@
+                @*<p>Try javascript exercises</p>*@
+                <ul class="nav nav-pills">
+                    <li class="active"><a data-toggle="pill" href="#properties">Properties of a series</a></li>
+                    <li><a data-toggle="pill" href="#factorial">Factorial</a></li>
+                    <li><a data-toggle="pill" href="#fizzbuzz">FizzBuzz</a></li>
+                    <li><a data-toggle="pill" href="#palindrome">Palindrome</a></li>
+                </ul>
+
+                <div class="tab-content col-sm-12">
+                    <div id="properties" class="tab-pane fade in active">
+                        @*<h3>Max</h3>*@
+                        <h5>Please enter a number in each box</h5>
+                        <input type="number" id="inputOneA" />
+                        <input type="number" id="inputOneB" />
+                        <input type="number" id="inputOneC" />
+                        <input type="number" id="inputOneD" />
+                        <input type="number" id="inputOneE" />
+                        <button onclick="problemOne()">Submit</button>
+                        <p id="resultOne">Result will show up here</p>
+                        @*<div class="row">
+                <div class="col-md-6">*@
+                        <pre class="brush: js">
+function seriesFinder(numberOne, numberTwo, numberThree, numberFour, numberFive) {
+            
+    var seriesArray = [numberOne, numberTwo, numberThree, numberFour, numberFive];
+    var currentGreatest = seriesArray[0];
+    for (var i = 0; i < seriesArray.length; i++) {
+        if (seriesArray[i] > currentGreatest) {
+            currentGreatest = seriesArray[i];
+        }
+    }
+    var greatest = currentGreatest;
+    var currentLeast = seriesArray[0];
+    for (var i = 0; i < seriesArray.length; i++) {
+        if (seriesArray[i] < currentLeast) {
+            currentLeast = seriesArray[i];
+        }
+    }
+    var least = currentLeast;
+    var sum = 0;
+    var product = 1;
+    for (var i = 0; i < seriesArray.length; i++) {
+        sum += seriesArray[i];
+        product *= seriesArray[i];
+    }
+    var mean = sum / seriesArray.length;
+            
+    return 'Least Number: ' + least + ' Greatest Number: ' + greatest + ' Mean: ' + mean + ' Sum: ' + sum + ' Product: ' + product;
+ 
+}
+                            </pre>
+                    </div>
+                    <div id="factorial" class="tab-pane fade">
+                        @*<h3>Min</h3>*@
+                        <h5>Please enter a number 0-170 in the box to find its factorial</h5>
+                        <input type="number" id="inputTwo" />
+                        <button onclick="problemTwo()">Submit</button>
+                        <p id="resultTwo">Result will show up here</p>
+                        @*<div class="row">
+                <div class="col-md-6">*@
+                        <pre class="brush: js">
+function factorialFinder(input) {
+    if (input < 0 || input > 170) {
+        return 'Invalid input';
+    }
+    else if (input > 0) {
+        var factorial = 1;
+        while (input != 0) {
+            factorial *= input;
+            input = input - 1;
+        }
+        return 'Factorial: ' + factorial;
+    }
+    else {
+        return 'Factorial: ' + 1;
+    }
+}
+                            </pre>
+                    </div>
+                    <div id="fizzbuzz" class="tab-pane fade">
+                        @*<h3>Add</h3>*@
+                        <h5>Please enter a number 1-100 in each box to find multiples of each</h5>
+                        <input type="number" id="inputThreeA" />
+                        <input type="number" id="inputThreeB" />
+                        <button onclick="problemThree()">Submit</button>
+                        <p id="resultThree">Result will show up here</p>
+                        @*<div class="row">
+                <div class="col-md-6">*@
+                        <pre class="brush: js">
+function fizzBuzz(numberOne, numberTwo) {
+    var fizzBuzzArray = [];
+    if (1 <= numberOne <= 100 && 1 <= numberTwo <= 100) {
+        for (var i = 1, l = 0; i <= 100; i++, l++) {
+            if ((i % numberOne) == 0 && (i % numberTwo) == 0) {
+                fizzBuzzArray[l] = ' ' + 'FizzBuzz' + ' ';
+            }
+            else if ((i % numberOne) == 0) {
+                fizzBuzzArray[l] = ' ' + 'Fizz' + ' ';
+            }
+            else if ((i % numberTwo) == 0) {
+                fizzBuzzArray[l] = ' ' + 'Buzz' + ' ';
+            }
+            else {
+                fizzBuzzArray[l] = ' ' + i + ' ';
+            }
+        }
+        return fizzBuzzArray;
+    }
+    else {
+        return 'Invalid input';
+    }  
+}
+                            </pre>
+                    </div>
+                    <div id="palindrome" class="tab-pane fade">
+                        @*<h3>Product</h3>*@
+                        <h5>Please enter a word to see if it is a palindrome or not</h5>
+                        <input type="text" id="inputFour" />
+                        <button onclick="problemFour()">Submit</button>
+                        <p id="resultFour">Result will show up here</p>
+                        @*<div class="row">
+                <div class="col-md-6">*@
+                        <pre class="brush: js">
+function palindromeFinder(word) {
+    var wordReverse = '';
+            
+    if (word == '') {
+        return 'Please write something before submitting.'
+    } else {
+                
+        var lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+        var capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWQYZ';
+        for (var i = 0; i < capitalLetters.length; i++) {   
+            for (var j = 0; j < word.length; j++) {
+                if (inputFour[j] === capitalLetters[i]) {
+                    word = word.substr(0, j) + lowercaseLetters[i] + word.substr(j + 1);
+                }
+            }
+        }
+        for (var i = word.length - 1; i >= 0; i--) {
+            wordReverse += word[i];
+        }
+                
+        if (word === wordReverse) {
+            return 'This word is a palindrome, congrats!';
+        }
+                
+        else {
+            return 'This word is not a palindrome, sorry!';
+        }
+    }
+}
+                            </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin">
+                <button type="button" class="close btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,302 @@
+﻿@model kferretti_portfolio2.Models.BlogPost
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HOME -->
+    <section class="module module-header bg-dark bg-dark-50" data-background="/assets/images/DeathtoStock_IntotheLight-02.jpg">
+
+        <div class="container">
+
+            <!-- MODULE TITLE -->
+            <div class="row">
+
+                <div class="col-sm-8 col-sm-offset-2">
+
+                    <h1 class="module-title font-alt align-center">@Html.DisplayFor(model => model.Title)</h1>
+
+                    <div class="module-subtitle font-inc align-center">
+                        <div class="post-meta font-inc">
+                            @{ int i = 0; }
+                            @Html.DisplayFor(model => model.Created) | @ViewBag.Count @ViewBag.Comment@foreach (var topic in Model.Topics)
+                            {
+                                if (i == 0 && Model.Topics.Count == 1)
+                                {
+                                    <span> | </span><a href="@Url.Action("Details","Topics",new { id = topic.Id })">@Html.DisplayFor(modelItem => topic.Description)</a>
+                                }
+                                else if (i == 0)
+                                {
+                                    <span> | </span><a href="@Url.Action("Details","Topics",new { id = topic.Id })">@Html.DisplayFor(modelItem => topic.Description)</a><span>, </span>
+                                }
+                                else if (i < Model.Topics.Count - 1 && i > 0)
+                                {
+                                    <a href="@Url.Action("Details","Topics",new { id = topic.Id })">@Html.DisplayFor(modelItem => topic.Description)</a><span>, </span>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Details","Topics",new { id = topic.Id })">@Html.DisplayFor(modelItem => topic.Description)</a>
+                                }
+
+                                i++;
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /MODULE TITLE -->
+
+        </div>
+
+    </section>
+    <!-- /HOME -->
+    <!-- BLOG SINGLE -->
+    <section class="module">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-8 col-sm-offset-2">
+
+                    <!-- POST -->
+                    <div class="post">
+                        @if (User.IsInRole("Admin"))
+                        {<a href="@Url.Action("Edit", "Blog", new { id = Model.Id })"><input value="Edit" class="btn btn-default" style="width:150px" /></a><a href="@Url.Action("Delete", "Blog", new { id = Model.Id })"><input value="Delete" class="btn btn-default" style="width:150px" /></a>}
+                        <div class="post-thumbnail">
+                            @*<a href="@Url.Action("Single","Blog", new { slug = Model.slug })">*@<img src="@Url.Content(Model.ImageURL)" alt="">@*</a>*@
+                        </div>
+
+                        <div class="post-entry">
+
+                            @Html.Raw(Model.Body)
+
+                            @*<p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
+
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                </blockquote>
+
+                                <p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.</p>
+
+                                <ul>
+                                    <li>The European languages are members of the same family.</li>
+                                    <li>Their separate existence is a myth.</li>
+                                    <li>For science, music, sport, etc, Europe uses the same vocabulary.</li>
+                                </ul>
+
+                                <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>*@
+
+                        </div>
+
+                    </div>
+                    <!-- /POST -->
+                    <!-- COMMENTS-->
+                    <div class="comments">
+                        <h4 class="comment-title font-alt">@ViewBag.Count @ViewBag.Comment</h4>
+
+                        @foreach (var comment in Model.Comments)
+                        {
+
+                        <!-- COMMENT 1 -->
+                            <div class="comment clearfix">
+
+                                <div class="comment-avatar">
+                                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg" alt="avatar">
+                                </div>
+
+                                <div class="comment-content clearfix">
+
+                                    <div class="comment-author font-inc">
+                                        <a href="#">@Html.DisplayFor(modelItem => comment.Author.FirstName) @Html.DisplayFor(modelItem => comment.Author.LastName)</a>
+                                    </div>
+
+                                    <div class="comment-body">
+                                        <p>@Html.DisplayFor(modelItem => comment.Body)</p>
+                                    </div>
+
+                                    <div class="comment-meta font-inc">
+                                        @Html.DisplayFor(modelItem => comment.TimeSincePosted) @*- <a href="#">Reply <i class="fa fa-angle-right"></i></a>*@ @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                        {<a href="@Url.Action("EditComment", "Blog", new { id = comment.Id })"><input value="Edit" class="btn btn-default" style="width:150px" /></a><a href="@Url.Action("DeleteComment", "Blog", new { id = comment.Id })"><input value="Delete" class="btn btn-default" style="width:150px" /></a>}
+                                    </div>
+
+                                </div>
+
+                                @*<!-- COMMENT 2 -->
+                                    <div class="comment clearfix">
+
+                                        <div class="comment-avatar">
+                                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg" alt="avatar">
+                                        </div>
+
+                                        <div class="comment-content clearfix">
+
+                                            <div class="comment-author font-inc">
+                                                <a href="#">Mark Stone</a>
+                                            </div>
+
+                                            <div class="comment-body">
+                                                <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
+                                            </div>
+
+                                            <div class="comment-meta font-inc">
+                                                Today, 4 hours ago - <a href="#">Reply <i class="fa fa-angle-right"></i></a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- /COMMENT 2 -->*@
+
+                            </div>
+                        <!-- /COMMENT 1 -->
+                        }
+                        @*<!-- COMMENT 3 -->
+                            <div class="comment clearfix">
+
+                                <div class="comment-avatar">
+                                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg" alt="avatar">
+                                </div>
+
+                                <div class="comment-content clearfix">
+
+                                    <div class="comment-author font-inc">
+                                        <a href="#">Andy</a>
+                                    </div>
+
+                                    <div class="comment-body">
+                                        <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
+                                    </div>
+
+                                    <div class="comment-meta font-inc">
+                                        Today, 2 hours ago - <a href="#">Reply <i class="fa fa-angle-right"></i></a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- /COMMENT 3 -->*@
+
+                    </div>
+                    <!-- /COMMENTS -->
+                    <!-- COMMENT FORM -->
+                    <div class="comment-form">
+                        <h4 class="comment-form-title font-alt">Add your comment</h4>
+                        @if (Request.IsAuthenticated) { 
+                        using (Html.BeginForm("CreateComment", "Blog", new { postId = Model.Id }, FormMethod.Post))
+                        {
+                            @*<div class="form-group">
+                                    <label class="sr-only" for="name">Name</label>
+                                    <input type="text" id="name" class="form-control" name="name" placeholder="Name">
+                                </div>*@
+
+                            @*<div class="form-group">
+                                    <label class="sr-only" for="email">Name</label>
+                                    <input type="text" id="email" class="form-control" name="email" placeholder="E-mail">
+                                </div>*@
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                <textarea class="form-control" name="Body" rows="6" placeholder="Comment" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-round btn-g">Post comment</button>
+                            }
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")"><input class="btn btn-round btn-g" value="Make a comment"/></a>
+                        }
+                    </div>
+                    <!-- COMMENT FORM -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /BLOG SINGLE -->
+    <!-- DIVIDER -->
+    <hr class="divider-w">
+    <!-- /DIVIDER -->
+    <!-- CONTACT -->
+    <section class="module-small">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-map-pin"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            3106 Campfire Ct, Jamestown, NC
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-phone"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            +1 336 402 49 54
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-envelope"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            kjferretti@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /CONTACT -->
+    @*<!-- FOOTER -->
+        <footer class="footer">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 text-center">
+                        <p class="copyright font-inc m-b-0">© 2015 <a href="@Url.Action("Index","Home")">SEMANTIC</a>, All Rights Reserved.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </footer>
+        <!-- /FOOTER -->*@
+
+</div>
+<!-- /WRAPPER -->
+@*Comments html to add*@
+
+@*@using (Html.BeginForm("CreateComment", "Blog", new { postId = Model.Id }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input name="Body" type="text" class="form-control" required placeholder="add a comment" />
+        <button type="submit" class="btn btn-primary">Send</button>
+    }*@

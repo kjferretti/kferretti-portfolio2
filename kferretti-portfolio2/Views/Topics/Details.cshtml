@@ -1,0 +1,278 @@
+﻿@model kferretti_portfolio2.Models.Topic
+
+@using PagedList;
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/Scripts/jquery.dotdotdot.min.js"></script>
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HOME -->
+    <section class="module module-header bg-dark bg-dark-50" data-background="/assets/images/DeathtoStock_IntotheLight-02.jpg">
+
+        <div class="container">
+
+            <!-- MODULE TITLE -->
+            <div class="row">
+
+                <div class="col-sm-6 col-sm-offset-3">
+
+                    <h1 class="module-title font-alt align-center">Posts About @Html.DisplayFor(model => model.Description)</h1>
+
+                    @*<div class="module-subtitle font-inc align-center">
+                            See what I'm up to
+                        </div>*@
+
+                </div>
+
+            </div>
+            <!-- /MODULE TITLE -->
+
+        </div>
+
+    </section>
+    <!-- /HOME -->
+
+    <!-- BLOG GRID -->
+    <section class="module p-b-0">
+
+        <div class="container">
+
+            <div class="row multi-columns-row post-columns">
+                @foreach (var item in Model.BlogPosts)
+                {
+
+                    <!-- POST ITEM -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="post">
+                            @if (User.IsInRole("Admin"))
+                            {<a href="@Url.Action("Edit", "Blog", new { id = item.Id })"><input value="Edit" class="btn btn-default" style="width:150px" /></a><a href="@Url.Action("Delete", "Blog", new { id = item.Id })"><input value="Delete" class="btn btn-default" style="width:150px" /></a>}
+                            <div class="post-thumbnail">
+                                <a href="@Url.Action("Single", "Blog", new { slug = item.slug })"><img src="@Url.Content(item.ImageURL)" alt=""></a>
+                            </div>
+                            <div class="post-header">
+                                <h2 class="post-title font-alt"><a href="@Url.Action("Single", "Blog", new { slug = item.slug })">@Html.DisplayFor(modelItem => item.Title)</a></h2>
+                                <div class="post-meta font-inc">
+                                    @Html.DisplayFor(modelItem => item.Created)
+                                </div>
+                            </div>
+                            <div class="post-entry dot-ellipsis dot-height-75 dot-resize-update">
+                                @Html.Raw(item.Body)
+                            </div>
+                            <div class="post-more font-inc">
+                                <a href="@Url.Action("Single", "Blog", new { slug = item.slug })" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /POST ITEM -->
+                }
+
+                <!-- POST ITEM -->
+                @*<div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="post">
+                            <div class="post-thumbnail">
+                                <a href="@Url.Action("Single","Blog")"><img src="~/assets/images/post-2.jpg" alt=""></a>
+                            </div>
+                            <div class="post-header">
+                                <h2 class="post-title font-alt"><a href="@Url.Action("Single","Blog")">Shore after the tide</a></h2>
+                                <div class="post-meta font-inc">
+                                    By <a href="#">Mark Stone</a> | 25 DEC 2014
+                                </div>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more font-inc">
+                                <a href="@Url.Action("Single","Blog")" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /POST ITEM -->
+
+                    <!-- POST ITEM -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="post">
+                            <div class="post-thumbnail">
+                                <a href="@Url.Action("Single","Blog")"><img src="~/assets/images/post-3.jpg" alt=""></a>
+                            </div>
+                            <div class="post-header">
+                                <h2 class="post-title font-alt"><a href="@Url.Action("Single","Blog")">We in New Zealand</a></h2>
+                                <div class="post-meta font-inc">
+                                    By <a href="#">Thomas Anderson</a> | 22 DEC 2014
+                                </div>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more font-inc">
+                                <a href="@Url.Action("Single","Blog")" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /POST ITEM -->
+
+                    <!-- POST ITEM -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="post">
+                            <div class="post-thumbnail">
+                                <a href="@Url.Action("Single","Blog")"><img src="~/assets/images/post-4.jpg" alt=""></a>
+                            </div>
+                            <div class="post-header">
+                                <h2 class="post-title font-alt"><a href="@Url.Action("Single","Blog")">Our trip to the Alps</a></h2>
+                                <div class="post-meta font-inc">
+                                    By <a href="#">Thomas Anderson</a> | 31 DEC 2014
+                                </div>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more font-inc">
+                                <a href="@Url.Action("Single","Blog")" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /POST ITEM -->
+
+                    <!-- POST ITEM -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="post">
+                            <div class="post-thumbnail">
+                                <a href="@Url.Action("Single","Blog")"><img src="~/assets/images/post-5.jpg" alt=""></a>
+                            </div>
+                            <div class="post-header">
+                                <h2 class="post-title font-alt"><a href="@Url.Action("Single","Blog")">Shore after the tide</a></h2>
+                                <div class="post-meta font-inc">
+                                    By <a href="#">Mark Stone</a> | 25 DEC 2014
+                                </div>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more font-inc">
+                                <a href="@Url.Action("Single","Blog")" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /POST ITEM -->
+
+                    <!-- POST ITEM -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="post">
+                            <div class="post-thumbnail">
+                                <a href="@Url.Action("Single","Blog")"><img src="~/assets/images/post-6.jpg" alt=""></a>
+                            </div>
+                            <div class="post-header">
+                                <h2 class="post-title font-alt"><a href="@Url.Action("Single","Blog")">We in New Zealand</a></h2>
+                                <div class="post-meta font-inc">
+                                    By <a href="#">Thomas Anderson</a> | 22 DEC 2014
+                                </div>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more font-inc">
+                                <a href="@Url.Action("Single","Blog")" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /POST ITEM -->*@
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /BLOG GRID -->
+    <!-- PAGINATION -->
+    <section class="module-small p-t-10">
+
+        <div class="container text-center">
+
+            <div class="pagination font-inc text-uppercase">
+
+                <a href="#"><i class="fa fa-angle-left"></i> Prev</a>
+                <a href="#">Next <i class="fa fa-angle-right"></i></a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /PAGINATION -->
+    <!-- DIVIDER -->
+    <hr class="divider-w">
+    <!-- /DIVIDER -->
+    <!-- CONTACT -->
+    <section class="module-small">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-map-pin"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            3106 Campfire Ct, Jamestown, NC
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-phone"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            +1 336 402 49 54
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+                <!-- CONTENT BOX -->
+                <div class="col-sm-4">
+                    <div class="content-box">
+                        <div class="content-box-icon">
+                            <span class="icon-envelope"></span>
+                        </div>
+                        <div class="content-box-title font-inc">
+                            kjferretti@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <!-- /CONTENT BOX -->
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /CONTACT -->
+    <!-- FOOTER -->
+    @*<footer class="footer">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 text-center">
+                        <p class="copyright font-inc m-b-0">© 2015 <a href="@Url.Action("Index","Home")">SEMANTIC</a>, All Rights Reserved.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </footer>*@
+    <!-- /FOOTER -->
+
+</div>
+<!-- /WRAPPER -->
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@

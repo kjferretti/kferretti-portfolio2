@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+#lower-background-img {
+    background-position-y: -50px;
+}
+
+/****** Abbreviated HTML Text ******/
+
+/*.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}*/
+
+
+
+/*.truncate p {
+  display: block;*/
+  /* Fallback for non-webkit */
+  /*display: -webkit-box;
+  max-width: 400px;
+  height: 109.2px;*/
+  /* Fallback for non-webkit */
+  /*margin: 0 auto;
+  font-size: 26px;
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}*/
+
+
+  .text-over-image{
+      font-family: 'Lobster', sans-serif;
+      text-shadow: -2px 2px 1px grey;
+      color:white;
+      position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    height:130px;
+    font-size:7em;
+  }
+
+  .work-image{
+      position: relative;
+        overflow: hidden;
+      text-align:center;
+  }

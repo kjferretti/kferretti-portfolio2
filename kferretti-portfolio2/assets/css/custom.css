@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+#lower-background-img {
+    background-position-y: -50px;
+}
+
+/****** Abbreviated HTML Text ******/
+
+
+  .text-over-image{
+      font-family: 'Lobster', sans-serif;
+      text-shadow: -2px 2px 1px grey;
+      color:white;
+      position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    height:130px;
+    font-size:7em;
+  }
+
+  .work-image{
+      position: relative;
+        overflow: hidden;
+      text-align:center;
+  }
